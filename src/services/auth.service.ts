@@ -43,7 +43,7 @@ export class AuthService {
 
         await user.save();
 
-        const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET_KEY as string)
+        const token = await jwt.sign({userId: user._id}, process.env.JWT_SECRET_KEY as string)
 
         const returnedUser = {
             token,
